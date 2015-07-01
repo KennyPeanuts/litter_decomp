@@ -12,6 +12,7 @@ The experiment was to assess the loss of mass from leaves in 3 ponds in Farmvill
 
 * Modified 11 June 2015 - KF - completed analysis with the latest data and updated code to remove the outlier from DP
 
+* Modified 1 July 2015 - KF - added additional data summary for manuscript
 
 ## Author
 
@@ -40,6 +41,21 @@ KF
 
 ### Calculate Percent Mass Remaining
 
+#### Statistical Summary Across Ponds
+
+Comparison of incubation duration
+
+    with(leaf, tapply(days, lake, max, na.rm = T))
+
+~~~~
+Maximum days of deployment in the ponds
+
+   Campus Pond     Daulton Pond Lancer Park Pond 
+             209              211              204
+
+~~~~
+
+
 #### Daulton Pond
 
     T0.DP <- mean(leaf$AFDM[leaf$lake == "Daulton Pond" & leaf$days == 0], na.rm = T)
@@ -65,6 +81,19 @@ One of the points is basically 0 due to missing data
 to prevent this from affecting the calculation of k, I converted this value to NA in the data
 
     prop.rem.DP[58] <- NA
+
+##### Statisitcal Summary
+
+    summary(prop.rem.DP)
+
+~~~~
+
+ Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NAs 
+ 0.3931  0.5417  0.6495  0.6505  0.7083  1.0240 16.0000
+
+~~~~
+
+##### Graphical Analysis
 
 Create the days axis
 
@@ -123,6 +152,18 @@ _Natural log of proportion of leaf pack mass remining in Daulton Pond by days in
     T0.CP <- mean(leaf$AFDM[leaf$lake == "Campus Pond" & leaf$days == 0], na.rm = T)
     prop.rem.CP <- 1 - ((T0.DP - leaf$AFDM[leaf$lake == "Campus Pond"]) / T0.CP)
 
+##### Statistical Summary
+
+    summary(prop.rem.CP)
+
+~~~~
+
+ Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NAs 
+ 0.3087  0.5075  0.6599  0.6558  0.7400  1.7580 11.0000 
+
+~~~~
+
+##### Graphical Analysis
     day.axis.CP <- leaf$days[leaf$lake == "Campus Pond"] 
 
     plot(prop.rem.CP[prop.rem.CP > 0] * 100 ~ day.axis.CP[prop.rem.CP > 0], xlab = "Days in Pond", ylab = "Percent Mass Remaining", ylim = c(0, 100), pch = 16)
@@ -178,6 +219,19 @@ _Natural log of proportion of leaf pack mass remining in Campus Pond by days in 
 
     T0.LPP <- mean(leaf$AFDM[leaf$lake == "Lancer Park Pond" & leaf$days == 0], na.rm = T)
     prop.rem.LPP <- 1 - ((T0.LPP - leaf$AFDM[leaf$lake == "Lancer Park Pond"]) / T0.LPP)
+
+##### Statistical Summary
+
+    summary(prop.rem.LPP)
+
+~~~~
+
+ Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NAs 
+ 0.2422  0.6619  0.7733  0.7420  0.8329  1.3100 20.0000
+
+~~~~
+
+##### Graphical Analysis
 
     day.axis.LPP <- leaf$days[leaf$lake == "Lancer Park Pond"]
 
