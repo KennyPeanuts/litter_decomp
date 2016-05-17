@@ -14,6 +14,8 @@ The experiment was to assess the loss of mass from leaves in 3 ponds in Farmvill
 
 * Modified 1 July 2015 - KF - added additional data summary for manuscript
 
+* Modified 16 May 2016 - KF - modified figures for SFS 2016 talk
+
 ## Author
 
 KF
@@ -99,11 +101,13 @@ Create the days axis
 
     day.axis.DP <- leaf$days[leaf$lake == "Daulton Pond"] 
 
-    plot(prop.rem.DP[prop.rem.DP > 0] * 100 ~ day.axis.DP[prop.rem.DP > 0], xlab = "Days in Pond", ylab = "Percent Mass Remaining", ylim = c(0, 100), pch = 16)
-    dev.copy(png, "./output/plots/DP_decomp_mass_remain.png")
+    par(las = 1, mar=c(5, 6, 3, 3))
+    plot(prop.rem.DP[prop.rem.DP > 0] * 100 ~ day.axis.DP[prop.rem.DP > 0], xlab = "Days in Pond", ylab = "Percent Mass Remaining", ylim = c(0, 100), pch = 19, cex = 1.5, cex.axis = 1.5, cex.lab = 1.5)
+    text(150, 100, "Daulton Pond", cex = 1.5)
+    dev.copy(jpeg, "./output/plots/DP_decomp_mass_remain.jpg")
     dev.off()
 
-![Percent leaf pack mass remining in Daulton Pond by days in the pond](../output/plots/DP_decomp_mass_remain.png)
+![Percent leaf pack mass remining in Daulton Pond by days in the pond](../output/plots/DP_decomp_mass_remain.jpg)
 
 _Percent leaf pack mass remining in Daulton Pond by days in the pond_
 
@@ -165,12 +169,14 @@ _Natural log of proportion of leaf pack mass remining in Daulton Pond by days in
 
 ##### Graphical Analysis
     day.axis.CP <- leaf$days[leaf$lake == "Campus Pond"] 
-
-    plot(prop.rem.CP[prop.rem.CP > 0] * 100 ~ day.axis.CP[prop.rem.CP > 0], xlab = "Days in Pond", ylab = "Percent Mass Remaining", ylim = c(0, 100), pch = 16)
-    dev.copy(png, "./output/plots/CP_decomp_mass_remain.png")
+    
+    par(las = 1, mar = c(5, 6, 3, 3))
+    plot(prop.rem.CP[prop.rem.CP > 0] * 100 ~ day.axis.CP[prop.rem.CP > 0], xlab = "Days in Pond", ylab = "Percent Mass Remaining", ylim = c(0, 100), pch = 19, cex = 1.5, cex.axis = 1.5, cex.lab = 1.5)
+    text(150, 100, "Campus Pond", cex = 1.5)
+    dev.copy(jpeg, "./output/plots/CP_decomp_mass_remain.jpg")
     dev.off()
 
-![Percent leaf pack mass remining in Campus Pond by days in the pond](../output/plots/CP_decomp_mass_remain.png)
+![Percent leaf pack mass remining in Campus Pond by days in the pond](../output/plots/CP_decomp_mass_remain.jpg)
 
 _Percent leaf pack mass remining in Campus Pond by days in the pond_
 
@@ -235,11 +241,13 @@ _Natural log of proportion of leaf pack mass remining in Campus Pond by days in 
 
     day.axis.LPP <- leaf$days[leaf$lake == "Lancer Park Pond"]
 
-    plot(prop.rem.LPP[prop.rem.LPP > 0] * 100 ~ day.axis.LPP[prop.rem.LPP > 0], xlab = "Days in Pond", ylab = "Percent Mass Remaining", ylim = c(0, 100), pch = 16)
-    dev.copy(png, "./output/plots/LPP_decomp_mass_remain.png")
+    par(las = 1, mar = c(5, 6, 3, 3))
+    plot(prop.rem.LPP[prop.rem.LPP > 0] * 100 ~ day.axis.LPP[prop.rem.LPP > 0], xlab = "Days in Pond", ylab = "Percent Mass Remaining", ylim = c(0, 100), pch = 19, cex = 1.5, cex.axis = 1.5, cex.lab = 1.5)
+    text(150, 100, "Lancer Park Pond", cex = 1.5)
+    dev.copy(jpeg, "./output/plots/LPP_decomp_mass_remain.jpg")
     dev.off()
 
-![Percent leaf pack mass remining in Lancer Park Pond by days in the pond](../output/plots/LPP_decomp_mass_remain.png)
+![Percent leaf pack mass remining in Lancer Park Pond by days in the pond](../output/plots/LPP_decomp_mass_remain.jpg)
 
 _Percent leaf pack mass remining in Lancer Park Pond by days in the pond_
 
