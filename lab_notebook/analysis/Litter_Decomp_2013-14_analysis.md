@@ -16,6 +16,8 @@ The experiment was to assess the loss of mass from leaves in 3 ponds in Farmvill
 
 * Modified 16 May 2016 - KF - modified figures for SFS 2016 talk
 
+* Modified 3 Nov 2016 - KF - ANOVA on the final mass remaining
+
 ## Author
 
 KF
@@ -148,8 +150,8 @@ F-statistic: 59.34 on 1 and 52 DF,  p-value: 3.761e-10
 
 ![Percent leaf pack mass remining in Daulton Pond by days in the pond](../output/plots/lnDP_decomp_mass_remain.png)
 
-_Natural log of proportion of leaf pack mass remining in Daulton Pond by days in the pond. Line is the best fit model._
-    
+_Natural log of proportion of leaf pack mass remining in Daulton Pond by days in the pond. Line is the best fit model.
+
 
 #### Campus Pond
 
@@ -292,3 +294,6 @@ F-statistic: 32.65 on 1 and 48 DF,  p-value: 6.836e-07
 
 _Natural log of proportion of leaf pack mass remining in Lancer Park Pond by days in the pond. Line is the best fit model._
 
+### Analysis of the Percent Mass Remaining at the End of the Exp
+
+    boxplot(prop.rem.LPP[leaf$days == 204], prop.rem.CP[leaf$days == 209], prop.rem.DP[leaf$days == 211])
