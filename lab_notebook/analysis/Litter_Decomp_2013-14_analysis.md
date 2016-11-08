@@ -296,4 +296,62 @@ _Natural log of proportion of leaf pack mass remining in Lancer Park Pond by day
 
 ### Analysis of the Percent Mass Remaining at the End of the Exp
 
-    boxplot(prop.rem.LPP[leaf$days == 204], prop.rem.CP[leaf$days == 209], prop.rem.DP[leaf$days == 211])
+Due to the setup of the data.frame, I could not effectively select out the proportion of leaf litter remaining on the last day. I was getting a lot of issues with just getting NAs for some reason.  It isn`t clear to me why [] selects NAs as fulfilling the conditional...
+
+Anyway, I created separate data frames for each of the ponds and then selected out the data from the final day
+
+#### Data Frame Creation
+    LPP.prop.rem <- data.frame(prop.rem.LPP, leaf$days[leaf$lake  == "Lancer Park Pond"])
+    names(LPP.prop.rem) <- c("prop.rem.LPP", "days")
+
+    CP.prop.rem <- data.frame(prop.rem.CP, leaf$days[leaf$lake  == "Campus Pond"])
+    names(CP.prop.rem) <- c("prop.rem.CP", "days")
+
+    DP.prop.rem <- data.frame(prop.rem.DP, leaf$days[leaf$lake  == "Daulton Pond"])
+    names(DP.prop.rem) <- c("prop.rem.DP", "days")
+
+#### Summary of the proportion of leaf mass remaining (g) on the final day of the incubation
+
+##### LPP
+
+    summary(LPP.prop.rem$prop.rem.LPP[LPP.prop.rem$days == 204])
+    sd(LPP.prop.rem$prop.rem.LPP[LPP.prop.rem$days == 204], na.rm = T)
+    
+~~~~
+
+ Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    SD             NAs 
+ 0.3219  0.3730  0.4523  0.4318  0.4867  0.5250  0.08315351     20 
+
+~~~~
+ 
+##### CP
+
+    summary(CP.prop.rem$prop.rem.CP[CP.prop.rem$days == 209])
+    sd(CP.prop.rem$prop.rem.CP[CP.prop.rem$days == 209], na.rm = T)
+
+~~~~
+ 
+Min. 1st Qu.  Median    Mean 3rd Qu.    Max.     SD             NAs 
+ 0.3087  0.3974  0.4029  0.4228  0.4966  0.5084  0.08190044     10 
+
+~~~~
+
+##### DP
+ 
+    summary(DP.prop.rem$prop.rem.DP[DP.prop.rem$days == 211])
+    sd(DP.prop.rem$prop.rem.DP[DP.prop.rem$days == 211], na.rm = T)
+
+~~~~
+ 
+Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    SD             NAs 
+ 0.3931  0.4436  0.4466  0.4535  0.4597  0.5246 0.04715929     15 
+
+~~~~
+ 
+#### Graphical Analysis
+ 
+    par(las = 1)
+    boxplot(LPP.prop.rem$prop.rem.LPP[LPP.prop.rem$days == 204], CP.prop.rem$prop.rem.CP[CP.prop.rem$days == 209], DP.prop.rem$prop.rem.DP[DP.prop.rem$days == 211], ylab = "Proportion of Leaf Mass Remaining on Final Day", ylim = c(0, 1), axes = F, col = 8)
+    axis(1, c("LPP", "CP", "DP"), at = c(1, 2, 3))
+    axis(2)
+    box()
