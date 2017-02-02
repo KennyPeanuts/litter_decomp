@@ -18,6 +18,8 @@ The experiment was to assess the loss of mass from leaves in 3 ponds in Farmvill
 
 * Modified 3 Nov 2016 - KF - ANOVA on the final mass remaining
 
+* Modified 2 Feb 2017 - KF - calculated time to mineralize 50% and 95% of leaf mass
+
 ## Author
 
 KF
@@ -152,7 +154,47 @@ F-statistic: 59.34 on 1 and 52 DF,  p-value: 3.761e-10
 
 _Natural log of proportion of leaf pack mass remining in Daulton Pond by days in the pond. Line is the best fit model.
 
+##### Calculation of the time to 50% and 95% mass loss
 
+Rearranging the linear model from:
+ 
+~~~~
+ 
+ln(prop.rem) = (m * days) + b
+
+~~~~
+ 
+to solve for days yields:
+ 
+~~~~
+
+days = (ln(prop.rem) - b) / m
+
+~~~
+
+so:
+ 
+    days.50 <- (log(0.5) - coef(summary(DP.k))[1,"Estimate"]) / coef(summary(DP.k))[2,"Estimate"]
+
+    days.50
+
+~~~~
+so the number of days it would take to remove 50% of the leaf mass is 
+
+[1] 151.7942
+
+~~~~
+
+    days.5 <- (log(0.05) - coef(summary(DP.k))[1,"Estimate"]) / coef(summary(DP.k))[2,"Estimate"]
+
+    days.5
+
+~~~~
+so the number of days it would take to remove 95% of the leaf mass is 
+
+[1] 1065.476
+
+~~~~
 #### Campus Pond
 
     T0.CP <- mean(leaf$AFDM[leaf$lake == "Campus Pond" & leaf$days == 0], na.rm = T)
@@ -222,6 +264,48 @@ F-statistic:  54.8 on 1 and 57 DF,  p-value: 6.784e-10
 
 _Natural log of proportion of leaf pack mass remining in Campus Pond by days in the pond. Line is the best fit model._
 
+
+##### Calculation of the time to 50% and 95% mass loss
+
+Rearranging the linear model from:
+ 
+~~~~
+ 
+ln(prop.rem) = (m * days) + b
+
+~~~~
+ 
+to solve for days yields:
+ 
+~~~~
+
+days = (ln(prop.rem) - b) / m
+
+~~~
+
+so:
+ 
+    days.50 <- (log(0.5) - coef(summary(CP.k))[1,"Estimate"]) / coef(summary(CP.k))[2,"Estimate"]
+
+    days.50
+
+~~~~
+so the number of days it would take to remove 50% of the leaf mass is 
+
+[1] 123.0073
+
+~~~~
+
+    days.5 <- (log(0.05) - coef(summary(CP.k))[1,"Estimate"]) / coef(summary(CP.k))[2,"Estimate"]
+
+    days.5
+
+~~~~
+so the number of days it would take to remove 95% of the leaf mass is 
+
+[1] 785.7149
+
+~~~~
 
 #### Lancer Park Pond
 
@@ -294,6 +378,48 @@ F-statistic: 32.65 on 1 and 48 DF,  p-value: 6.836e-07
 
 _Natural log of proportion of leaf pack mass remining in Lancer Park Pond by days in the pond. Line is the best fit model._
 
+##### Calculation of the time to 50% and 95% mass loss
+
+Rearranging the linear model from:
+ 
+~~~~
+ 
+ln(prop.rem) = (m * days) + b
+
+~~~~
+ 
+to solve for days yields:
+ 
+~~~~
+
+days = (ln(prop.rem) - b) / m
+
+~~~
+
+so:
+ 
+    days.50 <- (log(0.5) - coef(summary(LPP.k))[1,"Estimate"]) / coef(summary(LPP.k))[2,"Estimate"]
+
+    days.50
+
+~~~~
+so the number of days it would take to remove 50% of the leaf mass is 
+
+[1] 179.4547
+
+~~~~
+
+    days.5 <- (log(0.05) - coef(summary(LPP.k))[1,"Estimate"]) / coef(summary(LPP.k))[2,"Estimate"]
+
+    days.5
+
+~~~~
+so the number of days it would take to remove 95% of the leaf mass is 
+
+[1] 957.2379
+
+~~~~
+ 
 ### Analysis of the Percent Mass Remaining at the End of the Exp
 
 Due to the setup of the data.frame, I could not effectively select out the proportion of leaf litter remaining on the last day. I was getting a lot of issues with just getting NAs for some reason.  It isn`t clear to me why [] selects NAs as fulfilling the conditional...
