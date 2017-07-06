@@ -1,18 +1,33 @@
-\documentclass{article}
+\documentclass[12pt,letter]{article}
+
 \usepackage{fullpage}
-\usepackage{parskip}
 \usepackage{setspace}
+\usepackage{parskip}
 \usepackage{titlesec}
-\usepackage{lineno}
 \usepackage{xcolor}
+\usepackage{lineno}
+
+\setlength\columnsep{25pt}
+
+
+
+
+
+\PassOptionsToPackage{hyphens}{url}
 \usepackage[colorlinks = true,
             linkcolor = blue,
             urlcolor  = blue,
             citecolor = blue,
             anchorcolor = blue]{hyperref}
-\usepackage{apacite}
-\usepackage{eso-pic}
-\AddToShipoutPictureBG{\AtPageLowerLeft{\includegraphics[scale=0.7]{powered-by-Authorea-watermark.png}}}
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\@combinedblfloats{\box\@outputbox}{\unvbox\@outputbox}{}{%
+  \errmessage{\noexpand\@combinedblfloats could not be patched}%
+}%
+\makeatother
+
+
+\usepackage{natbib}
 
 
 \renewenvironment{abstract}
@@ -27,12 +42,14 @@
 \titlespacing{\subsection}{0pt}{*2}{*0.5}
 \titlespacing{\subsubsection}{0pt}{*1.5}{0pt}
 
+
 \usepackage{authblk}
 \makeatletter
 \renewcommand\AB@authnote[1]{\rlap{\textsuperscript{\normalfont#1}}}
 \renewcommand\Authsep{,~\,}
 \renewcommand\Authands{,~\,and }
 \makeatother
+
 
 \usepackage{graphicx}
 \usepackage[space]{grffile}
@@ -54,19 +71,28 @@
 
 
 
+\usepackage[nomarkers,figuresonly,nolists,noheads]{endfloat}
+
+
+
+
+
+
 \begin{document}
 
 \title{Leaf litter density and decomposition in small man-made ponds}
 
 
-\author[ ]{Kenneth Fortino}
-\author[ ]{Leanna Tacik}
 
-\affil[ ]{}
+\author{Kenneth Fortino\and Leanna Tacik}%
+
+
 \vspace{-1em}
 
 
-\date{}
+
+  \date{}
+
 
 \begingroup
 \let\center\flushleft
@@ -74,25 +100,30 @@
 \maketitle
 \endgroup
 
-\doublespacing
+
 \linenumbers
+
+
+
+\doublespacing
+
 
 \begin{abstract}
 The input of terrestrial leaf litter into aquatic ecosystems supports aquatic food webs and fuels microbial metabolism. Although the role of leaf litter subsidies to streams have been studied extensively the effect of leaf litter in lentic systems has received less attention.  In particular the impact of leaf litter on the ecology and biogeochemistry of small man-made ponds is virtually unknown, despite the fact that these systems are extremely common and likely represent a substantial modification to watersheds in the North America. We measured the areal density of leaf litter and the rate of leaf litter decomposition in small man--made ponds in central Virginia to determine the size of the leaf litter pool in these systems, the rate at which leaf litter is decomposed, and the extent to which pond characteristics alter leaf litter abundance or processing.  We found that the areal density of leaf litter in the ponds ranged between 3.4 and 1179.0 g AFDM m\textsuperscript{-2}. The areal density of leaf litter was significantly greater in the littoral zones of the ponds, however leaf litter was present in the sediments throughout the pond. There was no relationship between the areal density of leaf litter in the sediments and the percent organic matter of the fine sediments, suggesting that leaf litter input is decoupled from bulk sediment organic matter. The decomposition rate of \emph{Liriodendron tulipifera} leaves in coarse mesh leaf packs ranged between 0.0025 and 0.0035 d\textsuperscript{-1}, which is among the slowest litter decomposition rates recorded in the literature for ponds and was unrelated to pond characteristics. Our results indicate that leaf litter is an abundant and persistent pool of organic matter in the sediments of small man--made ponds and it is likely to have a substantial effect on the trophic dynamics and biogeochemistry of these systems.%
 \end{abstract}%
 
-
+\newpage
 
 \section{Introduction}
-Ecosystem subsidies, the movement of resources across ecosystem boundaries \cite{Polis_1997}, are an important part of organic matter cycling in aquatic systems. The reciprocal transfer of resources between aquatic and terrestrial systems is common \cite{Nakano_2001, BAXTER_2005} , however the input of terrestrial organic matter to aquatic systems is an especially significant flux of material since, this subsidy has been shown to support metabolism and secondary production in a majority of lentic and lotic ecosystems \cite{Marcarelli_2011}. Organic matter subsidies from terrestrial to aquatic ecosystems are dominated by detrital plant material either as dissolved (DOC) or particulate (POC) organic carbon, and can substantially augment autochthonous organic matter production \cite{Hodkinson_1975,Gasith_1976,Wetzel_1984,WETZEL_1995,Webster_1997,Kobayashi_2011,Mehring_2014}. Seasonal leaf fall dominates the POC input into most temperate aquatic systems \cite{Wallace_1999} and this detrital material serves to stabilize aquatic metabolism \cite{Wetzel_1984}.
+Ecosystem subsidies, the movement of resources across ecosystem boundaries \hyperref[csl:1]{(Polis, Anderson \& Holt, 1997)}, are an important part of organic matter cycling in aquatic systems. The reciprocal transfer of resources between aquatic and terrestrial systems is common \hyperref[csl:2]{(Nakano \& Murakami, 2001}; \hyperref[csl:3]{Baxter, Fausch \& Saunders, 2005)} , however the input of terrestrial organic matter to aquatic systems is an especially significant flux of material since, this subsidy has been shown to support metabolism and secondary production in a majority of lentic and lotic ecosystems \hyperref[csl:4]{(Marcarelli et al., 2011)}. Organic matter subsidies from terrestrial to aquatic ecosystems are dominated by detrital plant material either as dissolved (DOC) or particulate (POC) organic carbon, and can substantially augment autochthonous organic matter production \hyperref[csl:5]{(Hodkinson, 1975}; \hyperref[csl:6]{Gasith \& Hosier, 1976}; \hyperref[csl:7]{Wetzel, 1984}; \hyperref[csl:8]{Wetzel, 1995}; \hyperref[csl:9]{Webster \& Meyer, 1997}; \hyperref[csl:10]{Kobayashi, Maezono \& Miyashita, 2011}; \hyperref[csl:11]{Mehring et al., 2014)}. Seasonal leaf fall dominates the POC input into most temperate aquatic systems \hyperref[csl:12]{(Wallace et al., 1999)} and this detrital material serves to stabilize aquatic metabolism \hyperref[csl:7]{(Wetzel, 1984)}.
 
-The effects of terrestrial leaf litter subsidies on aquatic systems have received the most attention in small lotic systems \cite{Webster_1986}.  In these systems, leaf litter mass is broken down by a combination of physical and biological processes, including chemical leaching, physical abrasion, microbial mineralization, and consumption by shredding macroinvertebrates \cite{Gessner_1999}. Under undisturbed conditions, leaf mass loss begins with leaching, which is then followed by conditioning of leaf material by microbial consumers, and finally consumption by shredding macroinvertebrates \cite{Cummins_1974}. Shredders can have a particularly large impact on leaf breakdown rate and leaf litter may contribute substantial material to stream secondary production \cite{Wallace_1997,Gra_a_2001,Eggert_2003, Creed_2009}. Anthropogenic modifications to watersheds associated with agricultural and urban land use do not consistently change leaf litter processing rates in the stream channel \cite{Bird_1992,HURYN_2002,Walsh_2005,Hagen_2006} but can have profound impacts on the mechanisms of leaf breakdown \cite{Bird_1992,PAUL_2006,Imberger_2008} and thus alter the impact of detrital subsides.   
+The effects of terrestrial leaf litter subsidies on aquatic systems have received the most attention in small lotic systems \hyperref[csl:13]{(Webster \& Benfield, 1986)}.  In these systems, leaf litter mass is broken down by a combination of physical and biological processes, including chemical leaching, physical abrasion, microbial mineralization, and consumption by shredding macroinvertebrates \hyperref[csl:14]{(Gessner, Chauvet \& Dobson, 1999)}. Under undisturbed conditions, leaf mass loss begins with leaching, which is then followed by conditioning of leaf material by microbial consumers, and finally consumption by shredding macroinvertebrates \hyperref[csl:15]{(Cummins, 1974)}. Shredders can have a particularly large impact on leaf breakdown rate and leaf litter may contribute substantial material to stream secondary production \hyperref[csl:16]{(Wallace, 1997}; \hyperref[csl:17]{Gra{\c{c}}a, 2001}; \hyperref[csl:18]{Eggert \& Wallace, 2003}; \hyperref[csl:19]{Creed et al., 2009)}. Anthropogenic modifications to watersheds associated with agricultural and urban land use do not consistently change leaf litter processing rates in the stream channel \hyperref[csl:20]{(Bird \& Kaushik, 1992}; \hyperref[csl:21]{Huryn et al., 2002}; \hyperref[csl:22]{Walsh et al., 2005}; \hyperref[csl:23]{Hagen, Webster \& Benfield, 2006)} but can have profound impacts on the mechanisms of leaf breakdown \hyperref[csl:20]{(Bird \& Kaushik, 1992}; \hyperref[csl:24]{Paul, Meyer \& Couch, 2006}; \hyperref[csl:25]{Imberger, Walsh \& Grace, 2008)} and thus alter the impact of detrital subsides.   
 
-Small impoundments (i.e., man-made ponds) are a common anthropogenic alteration to watersheds in the United States \cite{Downing_2006,Downing_2010}, but their impact on leaf litter processing has received limited study. Impoundments have been shown to alter litter processing rates downstream of dams \cite{Short_1980,Mendoza_Lera_2010, Tornwall_2016}, but estimates of litter processing within man-made ponds is limited (Table \ref{tab:k_summary}). Impoundment dramatically alters the physical, chemical, and biological characteristics of the system. Not only does the dam eliminate flow within the created pond or lake, but temperate ponds typically stratify, producing heterogeneity in oxygen, and other dissolved components \cite{WETZEL_2001}. Further, the reduction in flow produces a depositional environment within the pond favoring the accumulation of soft sediments \cite{WETZEL_2001}. These changes to the chemical and physical environment of the pond result in substantial differences in the composition of the pelagic and bethic communities between the pond and the former lotic system \cite{Ogbeibu_2002}. Given that physical factors, and consumers (microbial and animal) are central leaf decomposition, it is likely that man-made ponds differ substantially from surrounding lotic habitats with respect to leaf litter processing.
+Small impoundments (i.e., man-made ponds) are a common anthropogenic alteration to watersheds in the United States \hyperref[csl:26]{(Downing et al., 2006}; \hyperref[csl:27]{Downing, 2010)}, but their impact on leaf litter processing has received limited study. Impoundments have been shown to alter litter processing rates downstream of dams \hyperref[csl:28]{(Short \& Ward, 1980}; \hyperref[csl:29]{Mendoza-Lera et al., 2010}; \hyperref[csl:30]{Tornwall \& Creed, 2016)}, but estimates of litter processing within man-made ponds is limited (Table \ref{tab:k_summary}). Impoundment dramatically alters the physical, chemical, and biological characteristics of the system. Not only does the dam eliminate flow within the created pond or lake, but temperate ponds typically stratify, producing heterogeneity in oxygen, and other dissolved components \hyperref[csl:31]{(Wetzel, 2001)}. Further, the reduction in flow produces a depositional environment within the pond favoring the accumulation of soft sediments \hyperref[csl:31]{(Wetzel, 2001)}. These changes to the chemical and physical environment of the pond result in substantial differences in the composition of the pelagic and bethic communities between the pond and the former lotic system \hyperref[csl:32]{(Ogbeibu, 2002)}. Given that physical factors, and consumers (microbial and animal) are central leaf decomposition, it is likely that man-made ponds differ substantially from surrounding lotic habitats with respect to leaf litter processing.
 
-The abundance of the smallest ponds ($<$ 0.1 km\textsuperscript{2}) is more than 2 orders of magnitude greater than even modest sized lakes (1 km\textsuperscript{2}), and the number of small man-made ponds is approaching the number of natural ponds \cite{Downing_2010}, indicating that small man--made ponds represent an potentially important but understudied alteration to aquatic organic matter cycling.
+The abundance of the smallest ponds ($<$ 0.1 km\textsuperscript{2}) is more than 2 orders of magnitude greater than even modest sized lakes (1 km\textsuperscript{2}), and the number of small man-made ponds is approaching the number of natural ponds \hyperref[csl:27]{(Downing, 2010)}, indicating that small man--made ponds represent an potentially important but understudied alteration to aquatic organic matter cycling.
 
-Our objectives for this study were to quantify the abundance of leaf litter and leaf litter decomposition rate in small ponds in a moderately urbanized region of central Virginia. We hypothesized that the ponds would contain abundant leaf litter and that leaf mass loss would be slow relative to rates typical for lotic systems. We further hypothesized that since, leaf litter decomposition is affected by temperature, nutrient availability, invertebrate community composition, and temperature \cite{Webster_1986} and these factors may be affected by the design and construction of man--made ponds ponds, that man--made ponds, even when geographically close, might differ substantially in leaf processing rate. 
+Our objectives for this study were to quantify the abundance of leaf litter and leaf litter decomposition rate in small ponds in a moderately urbanized region of central Virginia. We hypothesized that the ponds would contain abundant leaf litter and that leaf mass loss would be slow relative to rates typical for lotic systems. We further hypothesized that since, leaf litter decomposition is affected by temperature, nutrient availability, invertebrate community composition, and temperature \hyperref[csl:13]{(Webster \& Benfield, 1986)} and these factors may be affected by the design and construction of man--made ponds ponds, that man--made ponds, even when geographically close, might differ substantially in leaf processing rate. 
 
 \begin{table}
 \tiny
@@ -145,7 +176,7 @@ Woodland Court Pond & 2.0 & 0.30 & 37.284, -78.392  & 0.8 & - & NA\\
 Wilck's Lake & 2.0 & 13.18 & 37.304, -78.415 & 0.6 & -  & NA\\
 \hline
 \end{tabular}
-\caption{{\label{tab:ponds} Descriptions of the ponds used in the study. Maximum Z is the maximum depth ever recorded in the lake. Surface Area is calculated using the digitized outline of the pond in from google maps with an online tool that calculates surface areas off of google maps (https://www.daftlogic.com/projects-google-maps-area-calculator-tool.htm). The latitude and longitude (Lat,Long) of the pond was measured at the approximate center of the pond using the ``Whats here?'' feature of google maps (https://www.google.com/maps/). Secchi Z is a representative Secchi depth recorded during the growing season. Chl a is a representative chlorophyll a concentration measured from the surface water during the growing season.  Days Litter Bags Incubated is a list of the days the litter bags were in the water before being retrieved for those ponds used in the litter decomposition experiment. Chlorophyll a was not measured in Woodland Court Pond or Wilkes Lake.}}
+\caption{{\label{tab:ponds} Descriptions of the ponds used in the study. Maximum Z is the maximum depth ever recorded in the lake. Surface Area is calculated using the digitized outline of the pond in from google maps with an online tool that calculates surface areas off of google maps (https://www.daftlogic.com/projects-google-maps-area-calculator-tool.htm). The latitude and longitude (Lat,Long) of the pond was measured at the approximate center of the pond using the ``Whats here?'' feature of google maps (https://www.google.com/maps/). Secchi Z is a representative Secchi depth recorded during the growing season. Chl a is a representative chlorophyll a concentration measured from the surface water during the growing season.  Days Litter Bags Incubated is a list of the days the litter bags were in the water before being retrieved for those ponds used in the litter decomposition experiment. Chlorophyll a was not measured in Woodland Court Pond or Wilck's Lake.}}
 \end{table}
 \end{center}
 
@@ -165,38 +196,20 @@ To determine the leaf litter decomposition rate in the ponds we measured the mas
 
 Differences in areal leaf litter density among ponds and between the littoral and open water zones of all ponds was determined using ANOVA. The leaf litter density was natural log transformed to homogenize the variance in the test of pond differences and for the test between the littoral and open water samples. Specific differences among ponds were assessed with a Tukey HSD post-hoc test. The relationship between areal leaf litter density and the percent organic matter of the sediments was assessed using linear regression.
 
-The decay coefficent (k) for the leaves in the litter bags in each pond were determined by calculating the slope of the relationship between the natural log of the percent leaf mass remaining by the number of days in the pond \cite{Benfield_2007}.
+The decay coefficent (k) for the leaves in the litter bags in each pond were determined by calculating the slope of the relationship between the natural log of the percent leaf mass remaining by the number of days in the pond \hyperref[csl:33]{(Benfield, 2007)}.
 
-All statistical analysis was performed using R \cite{R}.
+All statistical analysis was performed using R \hyperref[csl:34]{({R Core Team}, 2014)}.
 
 
 
 \section{Results}
 \subsection{Leaf Litter Density and Sediment Organic Matter}
 
-The areal density of leaf litter in the ponds ranged between 0.00344 and 1.179 kg AFDM m\textsuperscript{-2}. The greatest areal leaf litter densities were found in Daulton Pond and Lancer Park Pond but in both cases the greatest areal densities were rather exceptional values (Fig. \ref{fig:CPOM_density}). The total areal leaf litter density (i.e., littoral and open water combined) differed significantly among the ponds (F\textsubscript{3, 38} = 3.955, p = 0.015). The greatest areal leaf litter density was found in Lancer Park Pond with a mean ($\pm$ 1 SD) density of 0.399 ($\pm$ 0.436) kg AFDM m\textsuperscript{-2}. However the areal leaf litter density of Lancer Park Pond was only significantly different from Woodland Court pond which had a mean ($\pm$ 1 SD) areal density of 0.036 ($\pm$ 0.055) kg AFDM m\textsuperscript{-2}. The mean ($\pm$ 1 SD) areal leaf litter density of Daulton Pond and Wilkes Lake were 0.175 ($\pm$ 0.344) and 0.148 ($\pm$ 0.194) kg AFDM m\textsuperscript{-2}), respectively and were not significantly different than each other or the other ponds. 
+The areal density of leaf litter in the ponds ranged between 0.00344 and 1.179 kg AFDM m\textsuperscript{-2}. The greatest areal leaf litter densities were found in Daulton Pond and Lancer Park Pond but in both cases the greatest areal densities were rather exceptional values (Fig. \ref{fig:CPOM_density}). The total areal leaf litter density (i.e., littoral and open water combined) differed significantly among the ponds (F\textsubscript{3, 38} = 3.955, p = 0.015). The greatest areal leaf litter density was found in Lancer Park Pond with a mean ($\pm$ 1 SD) density of 0.399 ($\pm$ 0.436) kg AFDM m\textsuperscript{-2}. However the areal leaf litter density of Lancer Park Pond was only significantly different from Woodland Court pond which had a mean ($\pm$ 1 SD) areal density of 0.036 ($\pm$ 0.055) kg AFDM m\textsuperscript{-2}. The mean ($\pm$ 1 SD) areal leaf litter density of Daulton Pond and Wilck's Lake were 0.175 ($\pm$ 0.344) and 0.148 ($\pm$ 0.194) kg AFDM m\textsuperscript{-2}), respectively and were not significantly different than each other or the other ponds. 
 
 In all the ponds, the greatest areal leaf litter densities were found in the littoral portion of the pond (Fig \ref{fig:CPOM_density}). Across all the ponds areal leaf litter density of the littoral portions of the ponds ranged between 0.0097 and 1.179 kg AFDM m\textsuperscript{-2} with a mean ($\pm$ 1 SD) areal density of 0.283 ($\pm$ 0.347) kg AFDM m\textsuperscript{-2}, which is significantly greater (F\textsubscript{1, 40} = 28, p $<$ 0.0001) and much more variable than the areal leaf litter density of the open areas of the ponds, which ranged between 0.0034 and 0.215, with a mean ($\pm$ 1 SD) density of 0.030 ($\pm$ 0.0479) kg AFDM m\textsuperscript{-2} (Fig. \ref{fig:CPOM_density}). 
 
-The percent sediment organic matter of the ponds averaged ($\pm$ 1 SD) 10.3 ($\pm$ 0.055)\% across all ponds and ranged between a low of 0.73\% in Wilkes lake and a high of 22.3\% in Daulton Pond. The mean ($\pm$ 1 SD) percent sediment organic matter of Wilkes Lake was 6.17 ($\pm$ 3.65)\%, which was significantly lower than any of the other ponds (F\textsubscript{3, 37} = 6.664, p = 0.001). The percent sediment organic matter of the sediments of Lancer Park Pond and Woodland Court pond were more homogeneous, but not significantly different from the sediments of Daulton Pond (Fig. \ref{fig:LOI_survey}).  In all of the ponds, there was no significant difference between the open and littoral sections of the pond (F\textsubscript{1, 39} = 0.963, p = 0.333), nor was there a relationship between percent sediment organic matter and the density of leaf litter (r\textsuperscript{2} = 0.0046, p = 0.714)(Fig. \ref{fig:LOI_survey}). 
-
-\begin{figure}[h!]
-\begin{center}
-\includegraphics[width=0.70\columnwidth]{figures/CPOM-Dens-by-lake-scatter/CPOM-Dens-by-lake-scatter}
-\caption{{\label{fig:CPOM_density} 
-Areal leaf litter density in small man-made ponds near Farmville VA. Each point represents a single Ekman sample from the lake. Points are randomly offset on the x--axis to make all points visible.%
-}}
-\end{center}
-\end{figure}
-
-\begin{figure}[h!]
-\begin{center}
-\includegraphics[width=0.70\columnwidth]{figures/LOI-survey2/LOI-survey2}
-\caption{{\label{fig:LOI_survey}
-Percent organic matter in the soft sediment determined by loss on ignition at 550\textsubscript{o} in the survey ponds (A) or in relation to the density of leaf litter in the sediments (B).  Littoral refers to samples collected near the pond margin and Open refers to samples collected in the open water portion of the pond. Points are randomly offset on the x--axis to make all points visible.%
-}}
-\end{center}
-\end{figure}
+The percent sediment organic matter of the ponds averaged ($\pm$ 1 SD) 10.3 ($\pm$ 0.055)\% across all ponds and ranged between a low of 0.73\% in Wilck's lake and a high of 22.3\% in Daulton Pond. The mean ($\pm$ 1 SD) percent sediment organic matter of Wilck's Lake was 6.17 ($\pm$ 3.65)\%, which was significantly lower than any of the other ponds (F\textsubscript{3, 37} = 6.664, p = 0.001). The percent sediment organic matter of the sediments of Lancer Park Pond and Woodland Court pond were more homogeneous, but not significantly different from the sediments of Daulton Pond (Fig. \ref{fig:LOI_survey}).  In all of the ponds, there was no significant difference between the open and littoral sections of the pond (F\textsubscript{1, 39} = 0.963, p = 0.333), nor was there a relationship between percent sediment organic matter and the density of leaf litter (r\textsuperscript{2} = 0.0046, p = 0.714)(Fig. \ref{fig:LOI_survey}). 
 
 \subsection{Litter Decomposition Rate}
 
@@ -206,40 +219,227 @@ Litter bags were deployed in Daulton Pond, Campus Pond, and Lancer Park Pond for
 
 Our results show that small man-made ponds collect and retain substantial amounts of terrestrial leaf litter and are therefore likely to alter organic matter processing and specifically serve as an organic matter sink within watersheds where they occur.
 
-The areal leaf litter densities measured in the man-made ponds in this study support the observations of other authors that terrestrial detritus represents an important subsidy to lentic systems \cite{Hodkinson_1975, Gasith_1976, RICHEY_1978, Marcarelli_2011}. All of the ponds sampled had measurable leaf litter in their sediments. We are not aware of any other studies that measure leaf litter density in the sediments of man--made ponds in the same size class as we studied, so it is not clear how representative our measurements are of the leaf litter density of small man--made ponds globally. The only other lentic system for which we were able to find a measure of leaf litter density was for an intermittent swamp \cite{Mehring_2014}. In this study the authors report that leaf litter densities range between 1080 g m\textsuperscript{-2} following autumn leaf fall to 578 g m\textsuperscript{-2} in the summer \cite{Mehring_2014}, which is greater than all but the highest littoral values in the ponds we sampled.  Although we did not measure the flux of leaf material to the pond, comparisons between the densities we observed and measures of leaf litter inputs also serve to contextualize our observations.  \cite{Gasith_1976} report an input of 1.64 g m\textsuperscript{-2} d\textsuperscript{-1} of leaf litter into the littoral zone of a Wisconsin lake.  In a forested mountain lake \cite{Rau_1976} recorded a much lower deposition rate of 0.173 g m\textsuperscript{-2} d\textsuperscript{-1} and \cite{France_1995} measured an even lower leaf litter flux of approximately 0.04 and 0.02 g m\textsuperscript{-2} d\textsuperscript{-1} for the littoral zone of 4 lakes in Ontario. The magnitude of these fluxes would not be able to supply the leaf litter densities that we observed in the ponds in our study unless the litter was accumulating over many years. Our litter decomposition rates indicate that 95\% of leaf litter mass would be mineralized in between 786 and 1065 days, which indicates that the litter does not persist in these systems for sufficient time for such low deposition rates to be likely. A more likely explanation is that the flux of leaf litter into the ponds in our study is greater than what has been measured in high latitude lakes but not as high as those recorded in the swamp by \cite{Mehring_2014}.  
+The areal leaf litter densities measured in the man-made ponds in this study support the observations of other authors that terrestrial detritus represents an important subsidy to lentic systems \hyperref[csl:5]{(Hodkinson, 1975}; \hyperref[csl:6]{Gasith \& Hosier, 1976}; \hyperref[csl:35]{Richey et al., 1978}; \hyperref[csl:4]{Marcarelli et al., 2011)}. All of the ponds sampled had measurable leaf litter in their sediments. We are not aware of any other studies that measure leaf litter density in the sediments of man--made ponds in the same size class as we studied, so it is not clear how representative our measurements are of the leaf litter density of small man--made ponds globally. The only other lentic system for which we were able to find a measure of leaf litter density was for an intermittent swamp \hyperref[csl:11]{(Mehring et al., 2014)}. In this study the authors report that leaf litter densities range between 1080 g m\textsuperscript{-2} following autumn leaf fall to 578 g m\textsuperscript{-2} in the summer \hyperref[csl:11]{(Mehring et al., 2014)}, which is greater than all but the highest littoral values in the ponds we sampled.  Although we did not measure the flux of leaf material to the pond, comparisons between the densities we observed and measures of leaf litter inputs also serve to contextualize our observations.  \hyperref[csl:6]{(Gasith \& Hosier, 1976)} report an input of 1.64 g m\textsuperscript{-2} d\textsuperscript{-1} of leaf litter into the littoral zone of a Wisconsin lake.  In a forested mountain lake \hyperref[csl:36]{(Rau, 1976)} recorded a much lower deposition rate of 0.173 g m\textsuperscript{-2} d\textsuperscript{-1} and \hyperref[csl:37]{(France \& Peters, 1995)} measured an even lower leaf litter flux of approximately 0.04 and 0.02 g m\textsuperscript{-2} d\textsuperscript{-1} for the littoral zone of 4 lakes in Ontario. The magnitude of these fluxes would not be able to supply the leaf litter densities that we observed in the ponds in our study unless the litter was accumulating over many years. Our litter decomposition rates indicate that 95\% of leaf litter mass would be mineralized in between 786 and 1065 days, which indicates that the litter does not persist in these systems for sufficient time for such low deposition rates to be likely. A more likely explanation is that the flux of leaf litter into the ponds in our study is greater than what has been measured in high latitude lakes but not as high as those recorded in the swamp by \hyperref[csl:11]{(Mehring et al., 2014)}.  
 
-The greater density of leaf litter in the littoral samples also confirms the findings of other authors that leaf litter accumulates predominantly near the shoreline \cite{Gasith_1976,Rau_1976,France_1995}. Unlike other studies of larger systems \cite{Rau_1976,France_1995}  however, we found measurable leaf litter in the center of the pond. \cite{Gasith_1976} hypothesize that leaf litter that enters the lake floats for a period of time before being blown toward the shore and sinking. The presence of measurable leaf litter in the offshore sediments of the lakes in our study may be due to the small surface area of our ponds, which would be insufficiently exposed to wind to exclude floating leaf litter from the open water. This speculation is supported by the observation that the smallest lake in the sample had the most leaf litter in the offshore samples, however the remaining lakes all have a similar amount of offshore leaf litter despite size differences. 
+The greater density of leaf litter in the littoral samples also confirms the findings of other authors that leaf litter accumulates predominantly near the shoreline \hyperref[csl:6]{(Gasith \& Hosier, 1976}; \hyperref[csl:36]{Rau, 1976}; \hyperref[csl:37]{France \& Peters, 1995)}. Unlike other studies of larger systems \hyperref[csl:36]{(Rau, 1976}; \hyperref[csl:37]{France \& Peters, 1995)}  however, we found measurable leaf litter in the center of the pond. \hyperref[csl:6]{(Gasith \& Hosier, 1976)} hypothesize that leaf litter that enters the lake floats for a period of time before being blown toward the shore and sinking. The presence of measurable leaf litter in the offshore sediments of the lakes in our study may be due to the small surface area of our ponds, which would be insufficiently exposed to wind to exclude floating leaf litter from the open water. This speculation is supported by the observation that the smallest lake in the sample had the most leaf litter in the offshore samples, however the remaining lakes all have a similar amount of offshore leaf litter despite size differences. 
 
-The degree to which sediment leaf litter derives from stream inputs in these ponds is unknown but the significance of stream litter inputs is likely a function of stream discharge, litter load, and pond volume. Lancer Park Pond, and Woodland Court Ponds both have permanent first-order stream inlets, which likely serve as a substantial source of litter, especially during high discharge events. \cite{Rau_1976} found that litter inputs from intermittent streams around a mountain lake were minor but the system in that study is not likely to be representative of the ponds in our study. Although we know of no other estimation of stream leaf litter input to ponds, the capacity of small streams to transport leaf litter is well known \cite{Bilby_1980}. Despite the mechanisms involved, the presence of leaf litter in the open water sediments of these small ponds indicates that the impact of leaf litter on nutrient cycling and food--web processes extends beyond the littoral zone of small ponds.
+The degree to which sediment leaf litter derives from stream inputs in these ponds is unknown but the significance of stream litter inputs is likely a function of stream discharge, litter load, and pond volume. Lancer Park Pond, and Woodland Court Ponds both have permanent first-order stream inlets, which likely serve as a substantial source of litter, especially during high discharge events. \hyperref[csl:36]{(Rau, 1976)} found that litter inputs from intermittent streams around a mountain lake were minor but the system in that study is not likely to be representative of the ponds in our study. Although we know of no other estimation of stream leaf litter input to ponds, the capacity of small streams to transport leaf litter is well known \hyperref[csl:38]{(Bilby \& Likens, 1980)}. Despite the mechanisms involved, the presence of leaf litter in the open water sediments of these small ponds indicates that the impact of leaf litter on nutrient cycling and food--web processes extends beyond the littoral zone of small ponds.
 
-The degree of variability in leaf litter density within a pond was affected by the location in the pond. The samples from littoral sediments were much more variable than those from the open water sediments.  The variability of the leaf litter density in the littoral samples within each pond suggests that the factors affecting leaf litter accumulation in the sediments are heterogeneous within a lake. Some of this variation appears to be due to variation in riparian vegetation. \citet{France_1995} found that riparian vegetation affected litter fall and that litter deposition increased with the height, girth, and density of riparian trees. \citet{Rau_1976} reported greater litter deposition along forested shorelines, relative to meadow and talus in a mountain lake. In our study, the samples with the highest littoral leaf litter density were from in Daulton Pond and Lancer Park Pond. In both lakes these samples came from regions of the lake with forested riparian zones. Riparian vegetation does not explain all of the variation in littoral leaf litter density however. The littoral sample with the lowest leaf litter density in Lancer Park Pond was collected along the same forested shoreline as the replicates with much greater littoral litter density and none of the samples collected from a forested shoreline in Woodland Court Pond had a littoral litter density as high as those found in Daulton Pond or Lancer Park Pond. 
+The degree of variability in leaf litter density within a pond was affected by the location in the pond. The samples from littoral sediments were much more variable than those from the open water sediments.  The variability of the leaf litter density in the littoral samples within each pond suggests that the factors affecting leaf litter accumulation in the sediments are heterogeneous within a lake. Some of this variation appears to be due to variation in riparian vegetation. \hyperref[csl:37]{(France \& Peters, 1995)} found that riparian vegetation affected litter fall and that litter deposition increased with the height, girth, and density of riparian trees. \hyperref[csl:36]{(Rau, 1976)} reported greater litter deposition along forested shorelines, relative to meadow and talus in a mountain lake. In our study, the samples with the highest littoral leaf litter density were from in Daulton Pond and Lancer Park Pond. In both lakes these samples came from regions of the lake with forested riparian zones. Riparian vegetation does not explain all of the variation in littoral leaf litter density however. The littoral sample with the lowest leaf litter density in Lancer Park Pond was collected along the same forested shoreline as the replicates with much greater littoral litter density and none of the samples collected from a forested shoreline in Woodland Court Pond had a littoral litter density as high as those found in Daulton Pond or Lancer Park Pond. 
 
-Overall leaf litter was a prominent pool of organic matter in all of the small man--made ponds in the study. Leaf litter alters lentic food webs \cite{Kobayashi_2011,Cottingham_2013,Fey_2015a}, nutrient cycles \cite{McConnell_1968,France_1995}, and energy flow \cite{Hodkinson_1975}. The presence of and variability of leaf litter throughout the sediments of these small man--made ponds is likely to have profound effects on the ecology and biogeochemistry happening within the pond, and on the role of the pond in the watershed where it occurs.
+Overall leaf litter was a prominent pool of organic matter in all of the small man--made ponds in the study. Leaf litter alters lentic food webs \hyperref[csl:10]{(Kobayashi, Maezono \& Miyashita, 2011}; \hyperref[csl:39]{Cottingham \& Narayan, 2013}; \hyperref[csl:40]{Fey, Mertens \& Cottingham, 2015)}, nutrient cycles \hyperref[csl:41]{(McConnell, 1968}; \hyperref[csl:37]{France \& Peters, 1995)}, and energy flow \hyperref[csl:5]{(Hodkinson, 1975)}. The presence of and variability of leaf litter throughout the sediments of these small man--made ponds is likely to have profound effects on the ecology and biogeochemistry happening within the pond, and on the role of the pond in the watershed where it occurs.
 
-The fine sediment organic matter content of the pond sediments was strikingly decoupled from the leaf litter density. Overall, the average percent sediment organic matter in the ponds (10.3 $\pm$ 0.06 \%) was very similar to the average 10.7 ($\pm$ 0.05)\% sediment organic matter measured in 16 agricultural impoundments in Iowa by \cite{Downing_2008} but less than the more organic rich ($>$ 20 \% organic matter) \emph{gyttja} typical of productive natural lakes in the temperate zone \cite{Dean_1998}. The organic matter content of the sediment was not related to the density of leaf litter in the sediments nor did it differ significantly between the littoral and open water samples. These observations suggest that leaf litter inputs may not be an important driver of the variation in percent organic matter in the sediments.  We cannot ascertain from our data the degree which leaf litter contributes to sediment organic matter because the lack of correlation may be due to the redistribution of fine sediment organic matter within the pond obscuring a spatial correlation. Interestingly the two ponds with permanent inlets (Lancer Park Pond and Woodland Court Pond) have the most homogeneous percent sediment organic matter, which may be a result of the higher energy in these systems. Wilkes Lake appears to have a bimodal distribution of sediment organic matter and this is likely due to the fact that this lake was created as a borrow pit, thus the sediments may reflect the historical disturbance of the substrate. The greatest percent sediment organic matter and the greatest variation in sediment organic matter was found in Daulton Pond, which is mainly groundwater fed. This observation may be due to the lack of permanent surface water inputs which would limit the inorganic sediment load to the lake and maintain higher sediment heterogeneity.
+The fine sediment organic matter content of the pond sediments was strikingly decoupled from the leaf litter density. Overall, the average percent sediment organic matter in the ponds (10.3 $\pm$ 0.06 \%) was very similar to the average 10.7 ($\pm$ 0.05)\% sediment organic matter measured in 16 agricultural impoundments in Iowa by \hyperref[csl:42]{(Downing et al., 2008)} but less than the more organic rich ($>$ 20 \% organic matter) \emph{gyttja} typical of productive natural lakes in the temperate zone \hyperref[csl:43]{(Dean \& Gorham, 1998)}. The organic matter content of the sediment was not related to the density of leaf litter in the sediments nor did it differ significantly between the littoral and open water samples. These observations suggest that leaf litter inputs may not be an important driver of the variation in percent organic matter in the sediments.  We cannot ascertain from our data the degree which leaf litter contributes to sediment organic matter because the lack of correlation may be due to the redistribution of fine sediment organic matter within the pond obscuring a spatial correlation. Interestingly the two ponds with permanent inlets (Lancer Park Pond and Woodland Court Pond) have the most homogeneous percent sediment organic matter, which may be a result of the higher energy in these systems. Wilck's Lake appears to have a bimodal distribution of sediment organic matter and this is likely due to the fact that this lake was created as a borrow pit, thus the sediments may reflect the historical disturbance of the substrate. The greatest percent sediment organic matter and the greatest variation in sediment organic matter was found in Daulton Pond, which is mainly groundwater fed. This observation may be due to the lack of permanent surface water inputs which would limit the inorganic sediment load to the lake and maintain higher sediment heterogeneity.
 
-The mean ($\pm$ SD) leaf litter decomposition rate (k) measured for all 3 ponds in our study was 0.0030 ($\pm$ 0.00005) which is lower that the average decay rate of 0.0059 d\textsuperscript{-1} for woody plant litter in lakes in the review by \cite{Webster_1986} and lower than what \cite{Webster_1986} report for Magnoliaceae litter overall.  Our mean decomposition rate was also lower than all but 5 of the 17 observations made in similar systems collected from the literature (Table \ref{tab:k_summary}). All of the studies with decomposition rates lower than those measured in our ponds came from boreal systems (Table \ref{tab:k_summary}, see Hodkinson 1975, and Oertli 1993) and of these, 3 were from recalcitrant species (Table \ref{tab:k_summary}, see Hodkinson 1975). Thus the decomposition rate of \emph{L. tulipifera} litter in our study was among the lowest recorded rates for woody litter in the literature, and comparable to the litter decomposition rate high latitude systems. 
+The mean ($\pm$ SD) leaf litter decomposition rate (k) measured for all 3 ponds in our study was 0.0030 ($\pm$ 0.00005) which is lower that the average decay rate of 0.0059 d\textsuperscript{-1} for woody plant litter in lakes in the review by \hyperref[csl:13]{(Webster \& Benfield, 1986)} and lower than what \hyperref[csl:13]{(Webster \& Benfield, 1986)} report for Magnoliaceae litter overall.  Our mean decomposition rate was also lower than all but 5 of the 17 observations made in similar systems collected from the literature (Table \ref{tab:k_summary}). All of the studies with decomposition rates lower than those measured in our ponds came from boreal systems (Table \ref{tab:k_summary}, see Hodkinson 1975, and Oertli 1993) and of these, 3 were from recalcitrant species (Table \ref{tab:k_summary}, see Hodkinson 1975). Thus the decomposition rate of \emph{L. tulipifera} litter in our study was among the lowest recorded rates for woody litter in the literature, and comparable to the litter decomposition rate high latitude systems. 
 
-Litter characteristics clearly affect the rate of leaf litter decomposition in aquatic systems \cite{Webster_1986,Gessner_2010}, however it is unlikely that the slow rate of decomposition that we measured was due to the litter choice. \citet{Webster_1986} report that Magnoliaceae litter has the second fastest breakdown rate of the woody plants in their review or breakdown rates, so \emph{L. tulipifera} is not inherently resistant to decomposition. 
+Litter characteristics clearly affect the rate of leaf litter decomposition in aquatic systems \hyperref[csl:13]{(Webster \& Benfield, 1986}; \hyperref[csl:44]{Gessner, 2010)}, however it is unlikely that the slow rate of decomposition that we measured was due to the litter choice. \hyperref[csl:13]{(Webster \& Benfield, 1986)} report that Magnoliaceae litter has the second fastest breakdown rate of the woody plants in their review or breakdown rates, so \emph{L. tulipifera} is not inherently resistant to decomposition. 
 
-The low rates of decomposition of the leaves in these ponds is likely partially related to the near absence of shredder activity. Potential shredding taxa (i.e., crayfish) were observed colonizing the leaf packs in Lancer Park Pond but there was no obvious evidence of shredding on the leaves recovered from any of the ponds (K. Fortino, personal observation). Shredders can dramatically accelerate leaf litter mass loss in streams \cite{Cummins_1974, Webster_1986, Wallace_1999} and lakes \cite{Bjelke_2005}. The highly limited shredder fauna and the lack of shredder activity may have been due to low oxygen concentration within the leaf packs which could limit shredder colonization and feeding \cite{Bjelke_2005}. We did not measure the oxygen availability within the leaf packs but the leaves were mainly black in color when harvested, which is evidence of decomposition under anoxic conditions \cite{Anderson_1979}. The soft sediments found in the ponds may have also limited shredder colonization and contributed to the slow decomposition rate of the leaves. Many of the leaf packs became partially buried in the pond sediments during the course of the incubation (K. Fortino, personal observation), which may have reduced the microbial decomposition of the leaf material \cite{DANGER_2012}. 
+The low rates of decomposition of the leaves in these ponds is likely partially related to the near absence of shredder activity. Potential shredding taxa (i.e., crayfish) were observed colonizing the leaf packs in Lancer Park Pond but there was no obvious evidence of shredding on the leaves recovered from any of the ponds (K. Fortino, personal observation). Shredders can dramatically accelerate leaf litter mass loss in streams \hyperref[csl:15]{(Cummins, 1974}; \hyperref[csl:13]{Webster \& Benfield, 1986}; \hyperref[csl:12]{Wallace et al., 1999)} and lakes \hyperref[csl:45]{(Bjelke, 2005)}. The highly limited shredder fauna and the lack of shredder activity may have been due to low oxygen concentration within the leaf packs which could limit shredder colonization and feeding \hyperref[csl:45]{(Bjelke, 2005)}. We did not measure the oxygen availability within the leaf packs but the leaves were mainly black in color when harvested, which is evidence of decomposition under anoxic conditions \hyperref[csl:46]{(Anderson \& Sedell, 1979)}. The soft sediments found in the ponds may have also limited shredder colonization and contributed to the slow decomposition rate of the leaves. Many of the leaf packs became partially buried in the pond sediments during the course of the incubation (K. Fortino, personal observation), which may have reduced the microbial decomposition of the leaf material \hyperref[csl:47]{(Danger et al., 2012)}. 
 
-We used coarse mesh litter bags for our litter incubation, which allowed for the colonization of macroinvertebrates into the leaf packs, however the lack of evidence of shredding activity and the low decomposition rates suggests that the litter mass loss was due mainly the microbial processes.  A lack of shredder activity is a common observation in streams that have been affected by urbanization and thus leaf litter mass loss is mainly driven by a combination of microbial activity and physical abrasion \cite{PAUL_2006}. Despite the substantial accumulation of leaf litter resources in these ponds it is possible that, similar to urban streams, they do not provide suitable environmental conditions for shredders. In the ponds that we studied, physical abrasion would likely be near zero so we expect that virtually all of the leaf litter decomposition is due to microbial activity. 
+We used coarse mesh litter bags for our litter incubation, which allowed for the colonization of macroinvertebrates into the leaf packs, however the lack of evidence of shredding activity and the low decomposition rates suggests that the litter mass loss was due mainly the microbial processes.  A lack of shredder activity is a common observation in streams that have been affected by urbanization and thus leaf litter mass loss is mainly driven by a combination of microbial activity and physical abrasion \hyperref[csl:24]{(Paul, Meyer \& Couch, 2006)}. Despite the substantial accumulation of leaf litter resources in these ponds it is possible that, similar to urban streams, they do not provide suitable environmental conditions for shredders. In the ponds that we studied, physical abrasion would likely be near zero so we expect that virtually all of the leaf litter decomposition is due to microbial activity. 
 
-Our hypothesis that leaf litter decomposition would differ among ponds with different construction types and physical conditions was not supported by the data.  All three ponds had similarly low decomposition rates despite their differences. The similarity in litter decomposition rate between the ponds suggests that pond construction and gross physical conditions are not substantially affecting microbial decomposition rate, which may respond more to local sediment variables that are more similar between the ponds. Another possibility is that interacting differences between the ponds offset their respective effects. For example, Campus Pond typically has the highest chlorophyll, suggesting abundant available nutrients (Table \ref{tab:ponds}), which may stimulated leaf litter decomposition \cite{Gulis_2003, Tant_2013}. However, Campus Pond also has the largest inlet which could increase sedimentation and offset the impacts of the nutrients.
+Our hypothesis that leaf litter decomposition would differ among ponds with different construction types and physical conditions was not supported by the data.  All three ponds had similarly low decomposition rates despite their differences. The similarity in litter decomposition rate between the ponds suggests that pond construction and gross physical conditions are not substantially affecting microbial decomposition rate, which may respond more to local sediment variables that are more similar between the ponds. Another possibility is that interacting differences between the ponds offset their respective effects. For example, Campus Pond typically has the highest chlorophyll, suggesting abundant available nutrients (Table \ref{tab:ponds}), which may stimulated leaf litter decomposition \hyperref[csl:48]{(Gulis \& Suberkropp, 2003}; \hyperref[csl:49]{Tant, Rosemond \& First, 2013)}. However, Campus Pond also has the largest inlet which could increase sedimentation and offset the impacts of the nutrients.
 
 Taken together our results indicate that leaf litter is being collected and retained by small man-made ponds. Further we found that within these ponds, leaf litter was decaying at among the slowest rates observed for aquatic systems. Given that these ponds are novel, man-made features of the watershed, we suggest that their presence leads to a substantial alteration of organic matter processing within the watershed, and serves as a sink for detrital organic matter.
 
 \section{Acknowledgements}
 
- Invaluable field and lab help was provided by Annie Choi, Andreas Gregoriou, DJ Lettieri, Julia Marcellus, Carly Martin, and Kasey McCusker. We would like to thank the Longwood Real Estate Foundation and Longwood University for access to Lancer Park Pond, the Daulton Family for access to Daulton Pond, the Town of Farmville for access to Wilkes Lake, Longwood Univeristy for access to Campus Pond, and the Woodland Court Appartment Complex for access to Woodland Court Pond.  We would like to thank Robert Creed for his suggestions to improve a draft of this manuscript.
+ Invaluable field and lab help was provided by Annie Choi, Andreas Gregoriou, DJ Lettieri, Julia Marcellus, Carly Martin, and Kasey McCusker. We would like to thank the Longwood Real Estate Foundation and Longwood University for access to Lancer Park Pond, the Daulton Family for access to Daulton Pond, the Town of Farmville for access to Wilck's Lake, Longwood Univeristy for access to Campus Pond, and the Woodland Court Appartment Complex for access to Woodland Court Pond.  We would like to thank Robert Creed for his suggestions to improve a draft of this manuscript.
+
+\begin{figure}[h!]
+\begin{center}
+\includegraphics[width=0.70\columnwidth]{figures/CPOM-Dens-by-lake-scatter/CPOM-Dens-by-lake-scatter1}
+\caption{{\label{fig:CPOM_density} 
+Areal leaf litter density in small man-made ponds near Farmville VA. Each point represents a single Ekman sample from the lake. Points are randomly offset on the x--axis to make all points visible.%
+}}
+\end{center}
+\end{figure}
+
+\begin{figure}[h!]
+\begin{center}
+\includegraphics[width=0.70\columnwidth]{figures/LOI-survey/LOI-survey1}
+\caption{{\label{fig:LOI_survey}
+Percent organic matter of the soft sediment determined from loss on ignition at 550\textsuperscript{o} C from the surveyed ponds (A) and in relation to the density of leaf litter in the sediments (B).%
+}}
+\end{center}
+\end{figure}
 
 \selectlanguage{english}
-\nocite{*}
+\section*{References}\sloppy
+\phantomsection
+\label{csl:1}Polis GA., Anderson WB., Holt RD. 1997. {{Toward} {an} {integration} {of} {landscape} {and} {food} {web} {ecology}:The Dynamics of Spatially Subsidized Food Webs}. \textit{Annual Review of Ecology and Systematics} 28:289–316. DOI: 10.1146/annurev.ecolsys.28.1.289.
 
-\bibliographystyle{apacite}
-\bibliography{bibliography/converted_to_latex.bib%
-}
+\phantomsection
+\label{csl:2}Nakano S., Murakami M. 2001. {Reciprocal subsidies: Dynamic interdependence between terrestrial and aquatic food webs}. \textit{Proceedings of the National Academy of Sciences} 98:166–170. DOI: 10.1073/pnas.98.1.166.
+
+\phantomsection
+\label{csl:3}Baxter CV., Fausch KD., Saunders WC. 2005. {Tangled webs: reciprocal flows of invertebrate prey link streams and riparian zones}. \textit{Freshwater Biology} 50:201–220. DOI: 10.1111/j.1365-2427.2004.01328.x.
+
+\phantomsection
+\label{csl:4}Marcarelli AM., Baxter CV., Mineau MM., Hall RO. 2011. {Quantity and quality: unifying food web and ecosystem perspectives on the role of resource subsidies in freshwaters}. \textit{Ecology} 92:1215–1225. DOI: 10.1890/10-2240.1.
+
+\phantomsection
+\label{csl:5}Hodkinson ID. 1975. {Energy flow and organic matter decomposition in an abandoned beaver pond ecosystem}. \textit{Oecologia} 21:131–139. DOI: 10.1007/bf00345556.
+
+\phantomsection
+\label{csl:6}Gasith A., Hosier AD. 1976. {Airborne litterfall as a source of organic matter in lakes}. \textit{Limnology and Oceanography} 21:253–258. DOI: 10.4319/lo.1976.21.2.0253.
+
+\phantomsection
+\label{csl:7}Wetzel RG. 1984. {Detrital dissolved and particulate organic carbon functions in aquatic ecosystems}. \textit{Bulletin of Marine Science} 3:503–509.
+
+\phantomsection
+\label{csl:8}Wetzel RG. 1995. {Death detritus, and energy flow in aquatic ecosystems}. \textit{Freshwater Biology} 33:83–89. DOI: 10.1111/j.1365-2427.1995.tb00388.x.
+
+\phantomsection
+\label{csl:9}Webster JR., Meyer JL. 1997. {Organic Matter Budgets for Streams: A Synthesis}. \textit{Journal of the North American Benthological Society} 16:141–161. DOI: 10.2307/1468247.
+
+\phantomsection
+\label{csl:10}Kobayashi R., Maezono Y., Miyashita T. 2011. {The importance of allochthonous litter input on the biomass of an alien crayfish in farm ponds}. \textit{Population Ecology} 53:525–534. DOI: 10.1007/s10144-011-0268-3.
+
+\phantomsection
+\label{csl:11}Mehring AS., Kuehn KA., Tant CJ., Pringle CM., Lowrance RR., Vellidis G. 2014. {Contribution of surface leaf-litter breakdown and forest composition to benthic oxygen demand and ecosystem respiration in a South Georgia blackwater river}. \textit{Freshwater Science} 33:377–389. DOI: 10.1086/675507.
+
+\phantomsection
+\label{csl:12}Wallace JB., Eggert SL., Meyer JL., Webster JR. 1999. {Effects of Resource Limitation on a Detrital-Based Ecosystem}. \textit{Ecological Monographs} 69:409. DOI: 10.2307/2657224.
+
+\phantomsection
+\label{csl:13}Webster JR., Benfield EF. 1986. {Vascular Plant Breakdown in Freshwater Ecosystems}. \textit{Annual Review of Ecology and Systematics} 17:567–594. DOI: 10.1146/annurev.es.17.110186.003031.
+
+\phantomsection
+\label{csl:14}Gessner MO., Chauvet E., Dobson M. 1999. {A Perspective on Leaf Litter Breakdown in Streams}. \textit{Oikos} 85:377. DOI: 10.2307/3546505.
+
+\phantomsection
+\label{csl:15}Cummins KW. 1974. {Structure and Function of Stream Ecosystems}. \textit{{BioScience}} 24:631–641. DOI: 10.2307/1296676.
+
+\phantomsection
+\label{csl:16}Wallace JB. 1997. {Multiple Trophic Levels of a Forest Stream Linked to Terrestrial Litter Inputs}. \textit{Science} 277:102–104. DOI: 10.1126/science.277.5322.102.
+
+\phantomsection
+\label{csl:17}Gra{\c{c}}a MAS. 2001. {The Role of Invertebrates on Leaf Litter Decomposition in Streams - a Review}. \textit{International Review of Hydrobiology} 86:383–393. DOI: 10.1002/1522-2632(200107)86:4/5<383::aid-iroh383>3.0.co;2-d.
+
+\phantomsection
+\label{csl:18}Eggert SL., Wallace JB. 2003. {Litter breakdown and invertebrate detritivores in a resource-depleted Appalachian stream}. \textit{Archiv fur Hydrobiologie} 156:315–338. DOI: 10.1127/0003-9136/2003/0156-0315.
+
+\phantomsection
+\label{csl:19}Creed RP., Cherry RP., Pflaum JR., Wood CJ. 2009. {Dominant species can produce a negative relationship between species diversity and ecosystem function}. \textit{Oikos} 118:723–732. DOI: 10.1111/j.1600-0706.2008.17212.x.
+
+\phantomsection
+\label{csl:20}Bird GA., Kaushik NK. 1992. {Invertebrate colonization and processing of maple leaf litter in a forested and an agricultural reach of a stream}. \textit{Hydrobiologia} 234:65–77. DOI: 10.1007/bf00010862.
+
+\phantomsection
+\label{csl:21}Huryn AD., Huryn VMB., Arbuckle CJ., Tsomides L. 2002. {Catchment land-use macroinvertebrates and detritus processing in headwater streams: taxonomic richness versus function}. \textit{Freshwater Biology} 47:401–415. DOI: 10.1046/j.1365-2427.2002.00812.x.
+
+\phantomsection
+\label{csl:22}Walsh CJ., Roy AH., Feminella JW., Cottingham PD., Groffman PM., Morgan RP. 2005. {The urban stream syndrome: current knowledge and the search for a cure}. \textit{Journal of the North American Benthological Society} 24:706–723. DOI: 10.1899/04-028.1.
+
+\phantomsection
+\label{csl:23}Hagen EM., Webster JR., Benfield EF. 2006. {Are leaf breakdown rates a useful measure of stream integrity along an agricultural landuse gradient?}. \textit{Journal of the North American Benthological Society} 25:330–343. DOI: 10.1899/0887-3593(2006)25[330:albrau]2.0.co;2.
+
+\phantomsection
+\label{csl:24}Paul MJ., Meyer JL., Couch CA. 2006. {Leaf breakdown in streams differing in catchment land use}. \textit{Freshwater Biology} 51:1684–1695. DOI: 10.1111/j.1365-2427.2006.01612.x.
+
+\phantomsection
+\label{csl:25}Imberger SJ., Walsh CJ., Grace MR. 2008. {More microbial activity not abrasive flow or shredder abundance, accelerates breakdown of labile leaf litter in urban streams}. \textit{Journal of the North American Benthological Society} 27:549–561. DOI: 10.1899/07-123.1.
+
+\phantomsection
+\label{csl:26}Downing JA., Prairie YT., Cole JJ., Duarte CM., Tranvik LJ., Striegl RG., McDowell WH., Kortelainen P., Caraco NF., Melack JM., Middelburg JJ. 2006. {The global abundance and size distribution of lakes ponds, and impoundments}. \textit{Limnology and Oceanography} 51:2388–2397. DOI: 10.4319/lo.2006.51.5.2388.
+
+\phantomsection
+\label{csl:27}Downing JA. 2010. {Emerging global role of small lakes and ponds}. \textit{Limnetica} 29:0009–24.
+
+\phantomsection
+\label{csl:28}Short RA., Ward JV. 1980. {Leaf Litter Processing in a Regulated Rocky Mountain Stream}. \textit{Canadian Journal of Fisheries and Aquatic Sciences} 37:123–127. DOI: 10.1139/f80-015.
+
+\phantomsection
+\label{csl:29}Mendoza-Lera C., Larra{\~{n}}aga A., P{\'{e}}rez J., Descals E., Mart{\'{\i}}nez A., Moya O., Arostegui I., Pozo J. 2010. {Headwater reservoirs weaken terrestrial-aquatic linkage by slowing leaf-litter processing in downstream regulated reaches}. \textit{River Research and Applications} 28:13–22. DOI: 10.1002/rra.1434.
+
+\phantomsection
+\label{csl:30}Tornwall BM., Creed RP. 2016. {Shifts in shredder communities and leaf breakdown along a disrupted stream continuum}. \textit{Freshwater Science} 35:1312–1320. DOI: 10.1086/688857.
+
+\phantomsection
+\label{csl:31}Wetzel RG. 2001. {}. In: \textit{Limnology}. Elsevier {BV}, DOI: 10.1016/b978-0-08-057439-4.50005-8.
+
+\phantomsection
+\label{csl:32}Ogbeibu A. 2002. {Ecological impact of river impoundment using benthic macro-invertebrates as indicators}. \textit{Water Research} 36:2427–2436. DOI: 10.1016/s0043-1354(01)00489-4.
+
+\phantomsection
+\label{csl:33}Benfield EF. 2007. {Decomposition of Leaf Material}. In: \textit{Methods in Stream Ecology}. Elsevier {BV}, 711–720. DOI: 10.1016/b978-012332908-0.50042-5.
+
+\phantomsection
+\label{csl:34}{R Core Team}. 2014. \textit{{R: A Language and Environment for Statistical Computing}}. Vienna, Austria: R Foundation for Statistical Computing.
+
+\phantomsection
+\label{csl:35}Richey JE., Wissmar RC., Devol AH., Likens GE., Eaton JS., Wetzel RG., Odum WE., Johnson NM., Loucks OL., Prenki RT., Rich PH. 1978. {Carbon Flow in Four Lake Ecosystems: A Structural Approach}. \textit{Science} 202:1183–1186. DOI: 10.1126/science.202.4373.1183.
+
+\phantomsection
+\label{csl:36}Rau GH. 1976. {Dispersal of Terrestrial Plant Litter into a Subalpine Lake}. \textit{Oikos} 27:153. DOI: 10.2307/3543445.
+
+\phantomsection
+\label{csl:37}France RL., Peters RH. 1995. {Predictive Model of the Effects on Lake Metabolism of Decreased Airborne Litterfall through Riparian Deforestation}. \textit{Conservation Biology} 9:1578–1586. DOI: 10.1046/j.1523-1739.1995.09061578.x.
+
+\phantomsection
+\label{csl:38}Bilby RE., Likens GE. 1980. {Importance of Organic Debris Dams in the Structure and Function of Stream Ecosystems}. \textit{Ecology} 61:1107–1113. DOI: 10.2307/1936830.
+
+\phantomsection
+\label{csl:39}Cottingham KL., Narayan L. 2013. {Subsidy quantity and recipient community structure mediate plankton responses to autumn leaf drop}. \textit{Ecosphere} 4:art89. DOI: 10.1890/es13-00128.1.
+
+\phantomsection
+\label{csl:40}Fey SB., Mertens AN., Cottingham KL. 2015. {Autumn leaf subsidies influence spring dynamics of freshwater plankton communities}. \textit{Oecologia} 178:875–885. DOI: 10.1007/s00442-015-3279-5.
+
+\phantomsection
+\label{csl:41}McConnell WJ. 1968. {{Limnological} {effects} {of} {organic} {extracts} {of} {litter} {in} a {southwestern} {impoundment}}. \textit{Limnology and Oceanography} 13:343–349. DOI: 10.4319/lo.1968.13.2.0343.
+
+\phantomsection
+\label{csl:42}Downing JA., Cole JJ., Middelburg JJ., Striegl RG., Duarte CM., Kortelainen P., Prairie YT., Laube KA. 2008. {Sediment organic carbon burial in agriculturally eutrophic impoundments over the last century}. \textit{Global Biogeochemical Cycles} 22:n/a--n/a. DOI: 10.1029/2006gb002854.
+
+\phantomsection
+\label{csl:43}Dean WE., Gorham E. 1998. {Magnitude and significance of carbon burial in lakes reservoirs, and peatlands}. \textit{Geology} 26:535. DOI: 10.1130/0091-7613(1998)026<0535:masocb>2.3.co;2.
+
+\phantomsection
+\label{csl:44}Gessner MO. 2010. {Functional leaf traits and biodiversity effects on litter decomposition in a stream: reply}. \textit{Ecology} 91:1869–1871. DOI: 10.1890/0012-9658-91.6.1869.
+
+\phantomsection
+\label{csl:45}Bjelke U. 2005. {Processing of leaf matter by lake-dwelling shredders at low oxygen concentrations}. \textit{Hydrobiologia} 539:93–98. DOI: 10.1007/s10750-004-3369-6.
+
+\phantomsection
+\label{csl:46}Anderson NH., Sedell JR. 1979. {Detritus Processing by Macroinvertebrates in Stream Ecosystems}. \textit{Annual Review of Entomology} 24:351–377. DOI: 10.1146/annurev.en.24.010179.002031.
+
+\phantomsection
+\label{csl:47}Danger M., Cornut J., Elger A., Chauvet E. 2012. {Effects of burial on leaf litter quality microbial conditioning and palatability to three shredder taxa}. \textit{Freshwater Biology} 57:1017–1030. DOI: 10.1111/j.1365-2427.2012.02762.x.
+
+\phantomsection
+\label{csl:48}Gulis V., Suberkropp K. 2003. {Leaf litter decomposition and microbial activity in nutrient-enriched and unaltered reaches of a headwater stream}. \textit{Freshwater Biology} 48:123–134. DOI: 10.1046/j.1365-2427.2003.00985.x.
+
+\phantomsection
+\label{csl:49}Tant CJ., Rosemond AD., First MR. 2013. {Stream nutrient enrichment has a greater effect on coarse than on fine benthic organic matter}. \textit{Freshwater Science} 32:1111–1121. DOI: 10.1899/12-049.1.
+
+\phantomsection
+\label{csl:50}Gasith A., Hasler AD. 1976. {Airborne litterfall as a source of organic matter in lakes}. \textit{Limnology and Oceangraphy} 21:253–258. DOI: 10.4319/lo.1976.21.2.0253.
+
+\phantomsection
+\label{csl:51}McConnell WJ. 1968. {Limnological effects of organic extracts of litter in a southwestern impoundment}. \textit{Limnology and Oceangraphy} 13:343–349. DOI: 10.4319/lo.1968.13.2.0343.
+
+\phantomsection
+\label{csl:52}Lennon JT., Pfaff LE. 2005. {Source and supply of terrestrial organic matter affects aquatic microbial metabolism}. \textit{Aquatic Microbial Ecology} 39:107–119. DOI: 10.3354/ame039107.
+
+\phantomsection
+\label{csl:53}Alonso A., Gonz{\'{a}}lez-Mu{\~{n}}oz N., Castro-D{\'{\i}}ez P. 2010. {Comparison of leaf decomposition and macroinvertebrate colonization between exotic and native trees in a freshwater ecosystem}. \textit{Ecological Research} 25:647–653. DOI: 10.1007/s11284-010-0698-y.
+
+\phantomsection
+\label{csl:54}Bottollier-Curtet MARION., Charcosset J-Y., Planty-Tabacchi A-M., Tabacchi E. 2011. {Degradation of native and exotic riparian plant leaf litter in a floodplain pond}. \textit{Freshwater Biology} 56:1798–1810. DOI: 10.1111/j.1365-2427.2011.02620.x.
+
+\phantomsection
+\label{csl:55}Jr. JFG calves., Santos AM., Esteves FA. 2004. {The Influence of the Chemical Composition of Typha Domingensis and Nymphaea Ampla Detritus on Invertebrate Colonization During Decomposition in a Brazilian Coastal Lagoon}. \textit{Hydrobiologia} 527:125–137. DOI: 10.1023/b:hydr.0000043190.49651.dc.
+
+\phantomsection
+\label{csl:56}Hodkinson ID. 1975. {Dry Weight Loss and Chemical Changes in Vascular Plant Litter of Terrestrial Origin Occurring in a Beaver Pond Ecosystem}. \textit{The Journal of Ecology} 63:131. DOI: 10.2307/2258847.
+
+\phantomsection
+\label{csl:57}Oertli B. 1993. {Leaf litter processing and energy flow through macroinvertebrates in a woodland pond (Switzerland)}. \textit{Oecologia} 96:466–477. DOI: 10.1007/bf00320503.
+
+\phantomsection
+\label{csl:58}Reed FC. 1979. {Decomposition of Acer Rubrum Leaves at three depths in a eutrophic Ohio lake}. \textit{Hydrobiologia} 64:195–197. DOI: 10.1007/bf00020519.
 
 \end{document}
 
